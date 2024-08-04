@@ -1,20 +1,23 @@
 import axios from 'axios';
+import {IListingItem} from "../modules/marketplace/components/ListingItem.tsx";
 
-interface ListingItemSchema {
-    title: string;
-    description: string;
-    imageUrl: string;
-    price: number;
-    currency: string;
+const LISTING_ITEM_BASE_URL = "http://localhost:8080" + '/api/listingItem';
+
+interface IGetListingItemResult {
+    content: Array<IListingItem>
 }
 
-const LISTING_ITEM_BASE_URL = process.env.BACKEND_BASE_URL + '/api/listingItem';
-
 const ListingItemService = {
-    fetchListingItem: async (): Promise<Array<ListingItemSchema> | null> => {
+    fetchListingItem: async (params: { [key: string]: any }): Promise<Array<IListingItem> | null> => {
         try {
-            const response = await axios.get<Array<ListingItemSchema>>(`${LISTING_ITEM_BASE_URL}/getListingItem`, {});
-            return response.data;
+            const response = await axios.get<IGetListingItemResult>(`${LISTING_ITEM_BASE_URL}/getListingItem`, {
+                params: params, // This is where you include the request parameters
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Include other headers like authorization if required
+                }
+            });
+            return response.data.content;
         } catch (error) {
             console.error('Error fetching data:', error);
             return null;

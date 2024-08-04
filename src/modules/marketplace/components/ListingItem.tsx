@@ -1,4 +1,4 @@
-interface IListingItemProps {
+export interface IListingItem {
     imageUrl: string;
     price: number;
     currency: string;
@@ -7,7 +7,7 @@ interface IListingItemProps {
 
 }
 
-function ListingItem(props: IListingItemProps) {
+function ListingItem(props: IListingItem) {
     return (
         <div>
             <image href={props.imageUrl}></image>
