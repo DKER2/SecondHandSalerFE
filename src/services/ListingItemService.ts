@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {IListingItem} from "../modules/marketplace/components/ListingItem.tsx";
+import {IListingItem} from "../modules/marketplace/components/ListingItemComponent.tsx";
 
 const LISTING_ITEM_BASE_URL = "http://localhost:8080" + '/api/listingItem';
 
@@ -8,7 +8,7 @@ interface IGetListingItemResult {
 }
 
 const ListingItemService = {
-    fetchListingItem: async (params: { [key: string]: any }): Promise<Array<IListingItem> | null> => {
+    fetchListingItem: async (params: { [key: string] }): Promise<Array<IListingItem> | null> => {
         try {
             const response = await axios.get<IGetListingItemResult>(`${LISTING_ITEM_BASE_URL}/getListingItem`, {
                 params: params, // This is where you include the request parameters

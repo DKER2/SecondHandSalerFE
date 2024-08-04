@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import ListingItem, {IListingItem} from "../components/ListingItem.tsx";
+import ListingItemComponent, {IListingItem} from "../components/ListingItemComponent.tsx";
 import ListingItemService from "../../../services/ListingItemService.ts";
 
 export interface IMarketplacePageProps {
@@ -27,9 +27,9 @@ function MarketplacePage(props: IMarketplacePageProps) {
     }, [])
 
     return (
-        <div>
+        <div className="flex flex-wrap">
             {listingItems.map((item, i) => (
-                <ListingItem key={i} {...item} />
+                <ListingItemComponent key={i} {...item} />
             ))}
         </div>
     )
