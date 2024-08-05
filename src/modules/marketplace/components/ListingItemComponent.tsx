@@ -12,7 +12,9 @@ export interface IListingItem {
 function ListingItemComponent(props: IListingItem) {
     return (
         <div className="transform hover:-translate-y-2 transition duration-300 ease-in-out border-gray-800 border-2 p-4 rounded-3xl">
-            <img src={props.imageUrl} alt={props.title} ></img>
+            <div className="w-full flex justify-center">
+                <img src={props.imageUrl} alt={props.title} className="h-40"></img>
+            </div>
             <div>
                 {props.price.toString() + " " + props.currency}
             </div>

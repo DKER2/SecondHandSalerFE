@@ -27,7 +27,7 @@ function MarketplacePage(props: IMarketplacePageProps) {
     }, [])
 
     return (
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap items-stretch">
             {listingItems.map((item, i) => (
                 <div className="px-2 w-1/3" key={i}>
                     <ListingItemComponent {...item} />
