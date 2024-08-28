@@ -1,11 +1,11 @@
 import './App.css'
-import MarketplacePage from "./modules/marketplace/pages/MarketplacePage.tsx";
+import SignUpPage from "./modules/authentication/pages/SignUpPage.tsx";
 
 function App() {
 
   return (
       <>
-          <MarketplacePage page={0} size={10}/>
+          <SignUpPage/>
       </>
   )
 }

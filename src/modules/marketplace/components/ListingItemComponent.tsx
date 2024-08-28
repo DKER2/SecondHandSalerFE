@@ -6,7 +6,6 @@ export interface IListingItem {
     currency: string;
     title: string;
     description: string;
-
 }
 
 function ListingItemComponent(props: IListingItem) {
