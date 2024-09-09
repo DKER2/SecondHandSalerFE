@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import ListingItemComponent, {IListingItem} from "../components/ListingItemComponent.tsx";
 import ListingItemService from "../../../services/ListingItemService.ts";
 
@@ -7,7 +7,7 @@ export interface IMarketplacePageProps {
     size: number
 }
 
-function MarketplacePage(props: IMarketplacePageProps) {
+function MarketplacePage(props: IMarketplacePageProps) : React.ReactNode {
     const [listingItems, setListingItems] = useState<Array<IListingItem>>([]);
 
     useEffect( () => {
