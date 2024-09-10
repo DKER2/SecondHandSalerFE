@@ -11,7 +11,7 @@ function App() {
           <Router>
               <Routes>
                   <Route path="/" element={<DefaultLayout><SignUpPage /></DefaultLayout>}/>
-                  <Route path="/marketplace" element={<DefaultLayout><MarketplacePage page={0} size={5}/></DefaultLayout>}/>
+                  <Route path="/marketplace" element={<DefaultLayout><MarketplacePage page={0} size={10}/></DefaultLayout>}/>
               </Routes>
           </Router>
       </div>

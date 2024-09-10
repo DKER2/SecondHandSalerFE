@@ -22,6 +22,27 @@ const ListingItemService = {
             console.error('Error fetching data:', error);
             return null;
         }
+    },
+
+    createListingItem: async () => {
+        try {
+            const data = {
+                "title": "Vintage Vase",
+                "description": "A beautifully crafted vintage vase.",
+                "imageUrl": "https://i.imgur.com/fHyEMsl.jpg",
+                "price": 30.21,
+                "currency": "USD",
+                "seller": {
+                    "id": -43
+                }
+            };
+
+            const response = await axios.put(`${LISTING_ITEM_BASE_URL}/createListingItem`, data)
+            return response.data.content;
+        } catch (error) {
+            console.error('Error creating data:', error);
+            return null;
+        }
     }
 };
 

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ListingItemComponent, {IListingItem} from "../components/ListingItemComponent.tsx";
 import ListingItemService from "../../../services/ListingItemService.ts";
+import CreateListingItemButton from "../components/CreateListingItemButton.tsx";
 
 export interface IMarketplacePageProps {
     page: number,
@@ -27,13 +28,16 @@ function MarketplacePage(props: IMarketplacePageProps) : React.ReactNode {
     }, [])
 
     return (
-        <div className="flex flex-wrap items-stretch">
-            {listingItems.map((item, i) => (
-                <div className="px-2 w-1/3" key={i}>
-                    <ListingItemComponent {...item} />
-                </div>
-            ))}
-        </div>
+        <>
+            <div className="flex flex-wrap">
+                {listingItems.map((item, i) => (
+                    <div className="px-2 w-1/3" key={i}>
+                        <ListingItemComponent {...item} />
+                    </div>
+                ))}
+            </div>
+            <CreateListingItemButton/>
+        </>
     )
 }
 
